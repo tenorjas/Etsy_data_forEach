@@ -67,14 +67,15 @@ function question4 () {
 //    Display the name, number of items and the items it is made of.
 function question5 () {
   // Answer:
-  for (var i = 0; i < data.length; i++) {
-    if (data[i].materials.length >= 8) {
-      console.log(data[i].title + " has " + data[i].materials.length + " materials:");
-      for (var j = 0; j < data[i].materials.length; j++) {
-        console.log("- " + data[i].materials[j]);
+  //for (var i = 0; i < data.length; i++) {
+  data.forEach(function(item) {
+    if (item.materials.length >= 8) {
+      console.log(item.title + " has " + item.materials.length + " materials:");
+      for (var j = 0; j < item.materials.length; j++) {
+        console.log("- " + item.materials[j]);
       }
     }
-  }
+  });
 }
 
 
@@ -83,10 +84,11 @@ function question5 () {
 function question6 () {
   // Answer:
   let itemsMadeBySellers = 0;
-  for (var i = 0; i < data.length; i++) {
-    if (data[i].who_made === "i_did") {
+  //for (var i = 0; i < data.length; i++) {
+  data.forEach(function(item) {
+    if (item.who_made === "i_did") {
       itemsMadeBySellers++;
     }
-  }
+  });
   console.log(itemsMadeBySellers + " items were made by their sellers.");
 }
