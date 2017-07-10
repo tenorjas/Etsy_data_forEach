@@ -10,9 +10,10 @@ console.log(data);
 function question1 () {
   // Answer:
   let sum = 0;
-  for (var i = 0; i < data.length; i++) {
-    sum = sum + data[i].price;
-  }
+  //for (var i = 0; i < data.length; i++) {
+  data.forEach(function(item) {
+    sum += item.price;
+  });
   let average = (sum / data.length).toFixed(2);
   console.log("The average price is $" + average +".");
 }
@@ -24,11 +25,12 @@ function question2 () {
   // Answer:
   let itemsInRange = []; // The question asks for an array of items, so I did an array, not just the name.
   // I also excluded the item that costs 18 GBP, because that's more than $18 US.
-  for (var i = 0; i < data.length; i++) {
-    if ((data[i].price >= 14) && (data[i].price <= 18) && (data[i].currency_code === "USD")) {
-      itemsInRange.push(data[i]);
+  // for (var i = 0; i < data.length; i++) {
+  data.forEach(function(item) {
+    if ((item.price >= 14) && (item.price <= 18) && (item.currency_code === "USD")) {
+      itemsInRange.push(item);
     }
-  }
+  });
   console.log(itemsInRange);
 }
 
@@ -37,11 +39,12 @@ function question2 () {
 // 3: Which item has a "GBP" currency code? Display it's name and price.
 function question3 () {
   // Answer:
-  for (var i = 0; i < data.length; i++) {
-    if (data[i].currency_code === "GBP") {
-      console.log(data[i].title + " costs " + data[i].price + " pounds.");
+  //for (var i = 0; i < data.length; i++) {
+  data.forEach(function(item) {
+    if (item.currency_code === "GBP") {
+      console.log(item.title + " costs " + item.price + " pounds.");
     }
-  }
+  });
 }
 
 
